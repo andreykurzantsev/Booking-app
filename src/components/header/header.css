@@ -1,4 +1,5 @@
 .header{
+    position: relative;
     background-color: rgb(118, 118, 216);
     color: white;
     display: flex;
@@ -35,4 +36,44 @@
     border: none;
     padding: 10px;
     cursor: pointer;
+}
+.headerSearch{
+    height: 30px;
+    background-color: white;
+    border: 3px solid rgb(253, 150, 113);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    max-width: 1024px;
+}
+.headerIcon{
+    color: lightgray;
+}
+.headerSearchItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;  
+    -khtml-user-select: none; 
+    -moz-user-select: none;      
+    -ms-user-select: none;     
+    user-select: none;    
+}
+.headerSearchInput{
+    border: none;
+    outline: none;  
+}
+.headerSearchText{
+    color: lightgray;
+    cursor: pointer;
+}
+.date{
+    position: absolute;
+    top: 50px;
 }
