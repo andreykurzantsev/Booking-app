@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import {
   BrowserRouter,
   Routes,
   Route
-} from "react-router-dom"
-import Home from "./pages/home/Home"
-import List from "./pages/list/List"
-import Hotel from "./pages/single_hotel/Hotel"
+} from "react-router-dom";
+import Home from "./pages/home/Home";
+import List from "./pages/list/List";
+import Hotel from "./pages/single_hotel/Hotel";
 
 function App() {
   return (
