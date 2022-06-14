@@ -1,10 +1,10 @@
 import React from 'react';
 import "./propertyList.css";
-import hotelImg from "../../static/prop-list/hotels.jpg";
-import apartImg from "../../static/prop-list/apartments.jpg";
-import resortImg from "../../static/prop-list/resorts.jpg";
-import villaImg from "../../static/prop-list/villas.jpg";
-import cabinImg from "../../static/prop-list/cabins.jpg";
+import hotelImg from "../../static/prop-list/hotels.png";
+import apartImg from "../../static/prop-list/apartments.png";
+import resortImg from "../../static/prop-list/resorts.png";
+import villaImg from "../../static/prop-list/villas.png";
+import cabinImg from "../../static/prop-list/cabins.png";
 
 const propertyList = () => {
   return (
