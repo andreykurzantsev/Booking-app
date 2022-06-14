@@ -63,7 +63,7 @@ const Header = ({ type }) => {
         </div>
         {type !== "list" &&
           <>
-            <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
+            <h1 className="headerTitle">Why wait? Find your next stay now!</h1>
             <p className="headerDescription">
               Get rewarded for your travels - unlock instant savings of 10% or
               more with a free Easybooking account.
