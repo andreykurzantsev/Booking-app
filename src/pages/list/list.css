@@ -11,7 +11,7 @@
 }
 .listSearch{
     flex: 1;
-    background-color: rgb(253, 150, 113);
+    background-color: rgb(103, 219, 184);
     padding: 10px;
     border-radius: 10px; 
     position: sticky;
@@ -47,4 +47,27 @@
 }
 .listResult {
     flex: 3;
-  }
+}
+.listOptionItem{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 12px;
+}
+.listOptions{
+    padding: 10px;
+}
+.listOptionsInput{
+    width: 50px;
+}
+.listSearch>button{
+    padding: 10px;
+    background-color: rgb(253, 150, 113);
+    border-radius: 2px;
+    color: white;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+}
