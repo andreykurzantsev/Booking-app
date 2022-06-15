@@ -80,8 +80,8 @@ const Hotel = () => {
             </div>
           </div>
         </div>
-        <MailList/>
-        <Footer/>
+        <MailList />
+        <Footer type="list" />
       </div>
     </div>
   )

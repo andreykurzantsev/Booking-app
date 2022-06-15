@@ -1,9 +1,9 @@
 import React from 'react'
 import "./footer.css"
 
-const Footer = () => {
+const Footer = ({ type }) => {
   return (
-    <div className="footer">
+    <div className={type === "list" ? "footer listMode" : "footer"}>
         <div className="fLists">
             <ul className="flist">
                 <li className="fListItem">Countries</li>

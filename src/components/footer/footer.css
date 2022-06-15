@@ -1,5 +1,4 @@
 .footer{
-    padding-top: 20px;
     width: 100%;
     width: 1024px;
     font-size:12px;
@@ -18,4 +17,7 @@
     margin-bottom: 10px;
     color: rgb(118, 118, 216);
     cursor: pointer;
+}
+.footer.listMode{
+    padding-top: 30px;
 }
