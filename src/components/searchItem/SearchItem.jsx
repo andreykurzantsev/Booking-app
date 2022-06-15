@@ -1,11 +1,11 @@
 import React from 'react';
 import "./searchItem.css";
-import RoyaltonImg from "../../static/hotels/LondonHotel.png";
+import hotelImg from "../../static/hotels/LondonHotel.png";
 
 const SearchItem = () => {
     return (
         <div className="searchItem">
-            <img src={RoyaltonImg} alt="hotel picture" className="siImg" />
+            <img src={hotelImg} alt="hotel picture" className="siImg" />
             <div className="siDesc">
                 <h1 className="siTitle">Tower Streeet Apartments</h1>
                 <span className="siDistance">500m from center</span>

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/home/Home";
 import List from "./pages/list/List";
-import Hotel from "./pages/single_hotel/Hotel";
+import Hotel from "./pages/hotel/Hotel";
 
 function App() {
   return (
