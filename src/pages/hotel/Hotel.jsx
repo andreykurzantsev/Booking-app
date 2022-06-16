@@ -1,5 +1,11 @@
 import React from 'react';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+import {
+  faCircleArrowLeft,
+  faCircleArrowRight,
+  faCircleXmark,
+  faLocationDot
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
@@ -14,6 +20,13 @@ import AnHotelImg6 from "../../static/hotel-page-photos/AnHotel6.jpg";
 import "./hotel.css";
 
 const Hotel = () => {
+  const [slideNumber, setSlideNumber] = useState(0);
+  const [open, setOpen] = useState(false);
+  const handleOpen = (i) => {
+    setSlideNumber(i);
+    setOpen(true);
+  };
+
   const photoGalery = [
     AnHotelImg2,
     AnHotelImg3,
@@ -22,8 +35,36 @@ const Hotel = () => {
     AnHotelImg5,
     AnHotelImg6,
   ];
+
+  const handleMove = (direction) => {
+    let newSlideNumber;
+
+    if (direction === "l") {
+      newSlideNumber = slideNumber === 0 ?
+        photoGalery.length - 1 : slideNumber - 1;
+    } else {
+      newSlideNumber = slideNumber === photoGalery.length - 1 ?
+        0 : slideNumber + 1;
+    }
+    setSlideNumber(newSlideNumber);
+  };
+
   return (
     <div>
+      <div className={open === false ? "" : "parentSlider"}>
+        {open && (<div className="slider">
+          <FontAwesomeIcon icon={faCircleXmark}
+            className="close" onClick={() => setOpen(false)} />
+          <FontAwesomeIcon icon={faCircleArrowLeft}
+            className="Arrow" onClick={() => handleMove("l")} />
+          <div className="sliderWrapper">
+            <img src={photoGalery[slideNumber]}
+              className="sliderImg no_Selection" alt="photo" />
+          </div>
+          <FontAwesomeIcon icon={faCircleArrowRight}
+            className="Arrow" onClick={() => handleMove("r")} />
+        </div>)}
+      </div>
       <Navbar />
       <Header type="list" />
       <div className="hotelContainer">
@@ -41,9 +82,9 @@ const Hotel = () => {
             Book a stay over $114 at this property and get a free airport taxi
           </span>
           <div className="hotelImages">
-            {photoGalery.map(photo => (
+            {photoGalery.map((photo, i) => (
               <div className="hotelImgWrapper">
-                <img src={photo} alt="" className="hotelImg" />
+                <img onClick={() => handleOpen(i)} src={photo} alt="" className="hotelImg" />
               </div>
             ))}
             <div className="hotelDetails">

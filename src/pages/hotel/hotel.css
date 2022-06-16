@@ -97,3 +97,54 @@ font-weight: 300;
     cursor: pointer;
     border-radius: 5px;
 }
+
+/* slider */
+.parentSlider{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+}
+.slider{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    z-index: 999;
+}
+.sliderWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sliderImg{
+    width: 65%;
+    height: 70vh;   
+}
+.close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: lightgray;
+    cursor: pointer;
+}
+.Arrow{
+    margin: 40px;
+    font-size: 50px;
+    color: lightgray;
+    cursor: pointer;
+}
+.no_Selection {
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+}
