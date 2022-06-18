@@ -7,6 +7,8 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { format } from "date-fns";
 import UseFetch from '../../hooks/useFetch';
+import { useContext } from 'react';
+import { SearchContext } from '../../context/searchContext.js';
 import "./list.css";
 
 
@@ -21,9 +23,12 @@ const List = () => {
 
   const {data, loading, error, reFetch} = UseFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`);
 
+  const {dispatch} = useContext(SearchContext);
+
   const handleClick = () => {
     reFetch()
-  }
+    dispatch({type:"NEW_SEARCH", payload:{destination, dates, options}});
+  };
 
   return (
     <div><Navbar />
