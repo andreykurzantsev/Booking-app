@@ -34,11 +34,6 @@ const HotelSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    rating:{
-        type: Number,
-        min: 0,
-        max: 5,
-    },
     rooms:{
         type: [String],
     },
@@ -50,6 +45,16 @@ const HotelSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    rating:{
+        type: Number,
+        required: false,
+        min: 0,
+        max: 10,
+    },
+    review:{
+        type: String,
+        required: false,
+    }
 });
 
 export default mongoose.model("Hotel", HotelSchema);

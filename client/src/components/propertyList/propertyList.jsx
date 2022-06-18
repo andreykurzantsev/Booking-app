@@ -5,45 +5,30 @@ import apartImg from "../../static/prop-list/apartments.png";
 import resortImg from "../../static/prop-list/resorts.png";
 import villaImg from "../../static/prop-list/villas.png";
 import cabinImg from "../../static/prop-list/cabins.png";
+import UseFetch from '../../hooks/useFetch.js';
 
 const propertyList = () => {
+
+  const {data, loading, error} = UseFetch("/hotels/countByType");
+  const images = [
+    hotelImg,
+    apartImg,
+    resortImg,
+    villaImg,
+    cabinImg,
+  ]; 
+
   return (
     <div className="pList">
-        <div className="pListItem">
-            <img src={hotelImg} alt="hotels" className="pListImg" />
+        {loading ? ("loading"): (
+        <>{ data && images.map((img, i)=> (<div className="pListItem" key = {i}>
+            <img src={img} alt="pict" className="pListImg" />
             <div className="pListTitles">
-                <h1>Hotels</h1>
-                <h2>233 hotels</h2>
+                <h1>{data[i]?.type}</h1>
+                <h2>{data[i]?.count} {data[i]?.type}</h2>
             </div>
-        </div>
-        <div className="pListItem">
-            <img src={apartImg} alt="apartments" className="pListImg" />
-            <div className="pListTitles">
-                <h1>Apartments</h1>
-                <h2>233 apartments</h2>
-            </div>
-        </div>
-        <div className="pListItem">
-            <img src={resortImg} alt="resorts" className="pListImg" />
-            <div className="pListTitles">
-                <h1>Resorts</h1>
-                <h2>233 resorts</h2>
-            </div>
-        </div>
-        <div className="pListItem">
-            <img src={villaImg} alt="villas" className="pListImg" />
-            <div className="pListTitles">
-                <h1>Villas</h1>
-                <h2>233 villas</h2>
-            </div>
-        </div>
-        <div className="pListItem">
-            <img src={cabinImg} alt="cabins" className="pListImg" />
-            <div className="pListTitles">
-                <h1>Cabins</h1>
-                <h2>233 cabins</h2>
-            </div>
-        </div>
+        </div>))}
+        </>)}
     </div>
   )
 }

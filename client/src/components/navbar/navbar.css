@@ -22,3 +22,8 @@
     cursor: pointer;
     color: rgb(118, 118, 216);
 }
+.linkLogo{
+    color: inherit;
+    text-decoration: none;
+
+}
