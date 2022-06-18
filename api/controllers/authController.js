@@ -1,5 +1,6 @@
 import User from "../models/User.js";
 import {createError} from "../middleware/errorHandler.js";
+import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 class AuthController {
@@ -31,8 +32,11 @@ class AuthController {
             if (!isPasswordCorrect) {
                 return next(createError(400, "Wrong password or username!"));
             }
+            const token = jwt.sign({id:user._id, isAdmin:user.isAdmin}, process.env.STATIC_KEY);
             const {password, isAdmin, ...restParams} = user._doc;
-            res.status(200).json({...restParams});
+            res.cookie("access_token", token, {
+               httpOnly: true, 
+            }).status(200).json({...restParams});
         } catch (error) {
             next(error);
         }

@@ -6,11 +6,13 @@ import authRoute from "./routes/auth.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import usersRoute from "./routes/users.js";
+import cookieParser from "cookie-parser"
 dotenv.config({ path: 'var.env' });
 
 const PORT = (process.env.PORT || 5000);
 const app = express();
 
+app.use(cookieParser());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
