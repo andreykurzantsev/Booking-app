@@ -13,7 +13,7 @@ import "./list.css";
 const List = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
-  const [date, setDate] = useState(location.state.date);
+  const [dates, setDates] = useState(location.state.dates);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
   const [min, setMin] = useState(undefined);
@@ -21,7 +21,7 @@ const List = () => {
 
   const {data, loading, error, reFetch} = UseFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`);
 
-  const handleClick = () =>{
+  const handleClick = () => {
     reFetch()
   }
 
@@ -39,12 +39,12 @@ const List = () => {
             <div className="listSearchItem">
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`
-            ${format(date[0].startDate, "MM/dd/yyyy")} 
-            to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+            ${format(dates[0].startDate, "MM/dd/yyyy")} 
+            to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
               {openDate && (<DateRange
-                onChange={item => setDate([item.selection])}
+                onChange={item => setDates([item.selection])}
                 minDate={new Date()}
-                ranges={date}
+                ranges={dates}
               />)}
             </div>
             <div className="listSearchItem">
