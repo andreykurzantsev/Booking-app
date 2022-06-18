@@ -1,9 +1,5 @@
 import React from 'react'
 import "./featuredProperties.css";
-import ContinentalImg from "../../static/hotels/continental.png";
-import CitadinesImg from "../../static/hotels/LondonHotel.png";
-import LutetiaImg from "../../static/hotels/ParisHotel.png";
-import RoyaltonImg from "../../static/hotels/NYHotel.png";
 import UseFetch from '../../hooks/useFetch';
 
 const FeaturedProperties = () => {
