@@ -3,7 +3,6 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from '../../context/authContext';
 import { useContext, useState } from 'react';
-import axios from 'axios';
 
 const Navbar = ({ type }) => {
 
@@ -40,7 +39,9 @@ const Navbar = ({ type }) => {
                   onClick={handleClick}>Log out</button>
               </div>) : (
               <div className="navItems">
-                <button className="navButton">Register</button>
+                <Link to="/register">
+                  <button className="navButton">Register</button>
+                </Link>
                 <Link to="/login">
                   <button className="navButton">Login</button>
                 </Link>

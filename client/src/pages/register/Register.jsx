@@ -5,12 +5,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
 import { AuthContext } from '../../context/authContext';
-import "./login.css";
+import "./register.css";
 
-const Login = () => {
-
+const Register = () => {
     const [credentials, setCredentials] = useState({
         username: undefined,
+        email: undefined,
         password: undefined,
     });
 
@@ -22,41 +22,46 @@ const Login = () => {
         console.log([e.target.id]);
     };
 
-
     const navigate = useNavigate();
 
     const handleClick = async (e) => {
-        e.preventDefault();
-        dispatch({ type: "LOGIN_START" });
+        e.preventDefault()
+        dispatch({ type: "REGISTRATION_START" });
         try {
-            const res = await axios.post("/auth/login", credentials)
-            dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+            const res = await axios.post("/auth/register", credentials)
+            dispatch({ type: "REGISTRATION_SUCCESS", payload: res.data });
             navigate("/");
         } catch (error) {
-            dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
+            dispatch({ type: "REGISTRATION_FAILURE", payload: error.response.data });
         }
     };
 
     return (
-        <div className="logPage">
+        <div className="regPage">
             <Navbar type="login"/>
-            <div className="login">
-                <div className="loginContainer">
-                    <div className="loginWrapper">
-                        <span className="logPageTitle">Welcome! Let's Log in.</span>
+            <div className="register">
+                <div className="registerContainer">
+                    <div className="registerWrapper">
+                        <span className="regPageTitle">Welcome! Let's Sign Up.</span>
                         <input type="text"
                             placeholder="username"
                             id="username"
                             onChange={handleChange}
-                            className="lInput"
+                            className="rInput"
+                        />
+                        <input type="text"
+                            placeholder="email"
+                            id="email"
+                            onChange={handleChange}
+                            className="rInput"
                         />
                         <input type="password"
                             placeholder="password"
                             id="password"
                             onChange={handleChange}
-                            className="lInput"
+                            className="rInput"
                         />
-                        <button disabled={loading} onClick={handleClick} className="lButton">Log in</button>
+                        <button disabled={loading} onClick={handleClick} className="rButton">Sign Up</button>
                         {error && <span className="errorMsg">{error.message}</span>}
                     </div>
                 </div>
@@ -65,4 +70,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register;
