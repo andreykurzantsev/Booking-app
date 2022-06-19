@@ -34,11 +34,11 @@ const Hotel = () => {
 
   const MILLISECONDS_PER_DAY = 1000 * 60 *60 * 24;
   const dayDifference = (date1, date2)=>{
-    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const timeDiff = Math.abs(Date.parse(date2) - Date.parse(date1));
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
   };
-  
+  console.log(dates[0].endDate);
   const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
   const handleMove = (direction) => {
