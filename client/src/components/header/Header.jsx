@@ -16,8 +16,12 @@ import "./header.css";
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { SearchContext } from '../../context/searchContext.js';
+import { AuthContext } from '../../context/authContext';
+import { Link } from "react-router-dom";
 
 const Header = ({ type }) => {
+
+  const { user } = useContext(AuthContext);
 
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -85,7 +89,9 @@ const Header = ({ type }) => {
               Get rewarded for your travels - unlock instant savings of 10% or
               more with a free Easybooking account.
             </p>
-            <button className="headerBtn">Sign in / Register</button>
+            {!user && <Link to="/login">
+              <button className="headerBtn">Sign in / Register</button>
+              </Link>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faHotel} className="headerIcon" />

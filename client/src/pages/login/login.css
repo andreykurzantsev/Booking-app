@@ -1,0 +1,61 @@
+.logPage{
+  height: 100vh;
+}
+
+.login {
+    width: 100%;
+    height: calc(100vh - 50px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(118, 118, 216, 0.5);
+  }
+  
+  .loginContainer {
+    min-height: 370px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 0px 30px;
+    height: 50vh;   
+    display: flex; 
+    align-items: center;
+  }
+  
+  .loginWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lInput{
+    height: 30px;
+    padding: 10px;
+  }
+  
+  .lButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: rgb(118, 118, 216);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .lButton:disabled{
+    background-color: rgb(253, 150, 113);
+    cursor: not-allowed;
+  }
+  .logPageTitle{
+    background-color: rgb(253, 150, 113);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
+    font-size: 40px;
+  }
+  .errorMsg{
+    text-align: center;
+    color: red;
+    text-shadow: 1px 1px 1px rgb(221, 158, 158);
+  }
