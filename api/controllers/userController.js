@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+import User from '../models/User.js';
 
 class UserController {
   async giveAllUsers(req, res, next) {
@@ -20,11 +20,14 @@ class UserController {
   async updateUser(req, res, next) {
     try {
       const updatedUser = await User.findByIdAndUpdate(
-        req.params.id, {
-          $set: req.body
-        }, {
-          new: true
-        });
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        {
+          new: true,
+        },
+      );
       res.status(200).json(updatedUser);
     } catch (error) {
       next(error);
@@ -32,9 +35,10 @@ class UserController {
   }
   async deleteUser(req, res, next) {
     try {
-      await User.findByIdAndDelete(
-        req.params.id);
-      res.status(200).json(`User with id: '${req.params.id}' deleted succesfully`);
+      await User.findByIdAndDelete(req.params.id);
+      res
+        .status(200)
+        .json(`User with id: '${req.params.id}' deleted succesfully`);
     } catch (error) {
       next(error);
     }

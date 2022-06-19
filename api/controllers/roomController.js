@@ -1,6 +1,6 @@
-import Room from "../models/Room.js";
-import Hotel from "../models/Hotel.js";
-import { createError } from "../middleware/errorHandler.js";
+import Room from '../models/Room.js';
+import Hotel from '../models/Hotel.js';
+import { createError } from '../middleware/errorHandler.js';
 
 class RoomController {
   async createRoom(req, res, next) {
@@ -11,7 +11,7 @@ class RoomController {
       try {
         await Hotel.findByIdAndUpdate(hotelId, {
           $push: {
-            rooms: savedRoom._id
+            rooms: savedRoom._id,
           },
         });
       } catch (error) {
@@ -41,11 +41,14 @@ class RoomController {
   async updateRoom(req, res, next) {
     try {
       const updatedRoom = await Room.findByIdAndUpdate(
-        req.params.id, {
-          $set: req.body
-        }, {
-          new: true
-        });
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        {
+          new: true,
+        },
+      );
       res.status(200).json(updatedRoom);
     } catch (error) {
       next(error);
@@ -53,14 +56,17 @@ class RoomController {
   }
   async updateRoomAvailability(req, res, next) {
     try {
-      await Room.updateOne({
-        "roomNumbers._id": req.params.id
-      }, {
-        $push: {
-          "roomNumbers.$.unavailableDates": req.body.dates
-        }
-      });
-      res.status(200).json("Room status has been updated.");
+      await Room.updateOne(
+        {
+          'roomNumbers._id': req.params.id,
+        },
+        {
+          $push: {
+            'roomNumbers.$.unavailableDates': req.body.dates,
+          },
+        },
+      );
+      res.status(200).json('Room status has been updated.');
     } catch (error) {
       next(error);
     }
@@ -72,13 +78,15 @@ class RoomController {
       try {
         await Hotel.findByIdAndUpdate(hotelId, {
           $pull: {
-            rooms: req.params.id
+            rooms: req.params.id,
           },
         });
       } catch (error) {
         next(error);
       }
-      res.status(200).json(`room with id: '${req.params.id}' deleted succesfully`);
+      res
+        .status(200)
+        .json(`room with id: '${req.params.id}' deleted succesfully`);
     } catch (error) {
       next(error);
     }

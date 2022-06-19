@@ -1,73 +1,73 @@
-.listContainer{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.listContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-.listWrapper{
-    width: 100%;
-    max-width: 1024px;
-    display: flex;
-    gap: 20px;
+.listWrapper {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  gap: 20px;
 }
-.listSearch{
-    flex: 1;
-    background-color: rgb(103, 219, 184);
-    padding: 10px;
-    border-radius: 10px; 
-    position: sticky;
-    top: 10px;
-    height: max-content;
+.listSearch {
+  flex: 1;
+  background-color: rgb(103, 219, 184);
+  padding: 10px;
+  border-radius: 10px;
+  position: sticky;
+  top: 10px;
+  height: max-content;
 }
-.listSearchTitle{
-    font-size: 20px;
-    color: #555;
-    margin-bottom: 10px;
+.listSearchTitle {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
 }
-.listSearchItem{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    gap: 5px;    
+.listSearchItem {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 5px;
 }
-.listSearchItem>label{
-    font-size: 12px;
+.listSearchItem > label {
+  font-size: 12px;
 }
-.listSearchItem>input{
-    height: 30px;
-    border: none;
-    padding: 5px;
+.listSearchItem > input {
+  height: 30px;
+  border: none;
+  padding: 5px;
 }
-.listSearchItem>span{
-    height: 30px;
-    padding: 5px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.listSearchItem > span {
+  height: 30px;
+  padding: 5px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 .listResult {
-    flex: 3;
+  flex: 3;
 }
-.listOptionItem{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    color: #555;
-    font-size: 12px;
+.listOptionItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 12px;
 }
-.listOptions{
-    padding: 10px;
+.listOptions {
+  padding: 10px;
 }
-.listOptionsInput{
-    width: 50px;
+.listOptionsInput {
+  width: 50px;
 }
-.listSearch>button{
-    padding: 10px;
-    background-color: rgb(253, 150, 113);
-    border-radius: 2px;
-    color: white;
-    border: none;
-    width: 100%;
-    cursor: pointer;
-    font-weight: 500;
+.listSearch > button {
+  padding: 10px;
+  background-color: rgb(253, 150, 113);
+  border-radius: 2px;
+  color: white;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
 }
