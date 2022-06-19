@@ -11,11 +11,13 @@ import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import MailList from '../../components/mailList/MailList';
 import Footer from '../../components/footer/Footer';
-import { useLocation } from 'react-router-dom';
-import UseFetch from '../../hooks/useFetch';
-import "./hotel.css";
+import Reserve from '../../components/reserve/Reserve';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { SearchContext } from '../../context/searchContext';
+import { AuthContext } from '../../context/authContext';
+import UseFetch from '../../hooks/useFetch';
+import "./hotel.css";
 
 
 const Hotel = () => {
@@ -54,6 +56,17 @@ const Hotel = () => {
     }
     setSlideNumber(newSlideNumber);
   };
+
+  const [openBook, setOpenBook] = useState(false);
+  const navigate = useNavigate();
+  const {user} = useContext(AuthContext);
+  const handleClick = () =>{
+    if(user){
+      setOpenBook(true)
+    } else{
+      navigate("/login")
+    }
+  }
 
   return (
     <div>
@@ -110,13 +123,14 @@ const Hotel = () => {
                 <h2>
                   <b>${days * data.cheapestPrice * options.room}</b> ({days} nights)
                 </h2>
-                <button>Reserve or Book Now!</button>
+                <button onClick={handleClick}>Reserve or Book Now!</button>
               </div>
             </div>
           </div>
           <MailList />
           <Footer type="list" />
         </div></>}
+        {openBook && <Reserve setOpen={setOpenBook} hotelId={id}/>}
     </div>
   )
 }

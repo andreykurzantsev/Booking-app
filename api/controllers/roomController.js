@@ -48,6 +48,18 @@ class RoomController {
         next(error);
       }
   }
+  async updateRoomAvailability(req, res, next) {
+    try {
+        await Room.updateOne({"roomNumbers._id": req.params.id},
+        {$push: {
+          "roomNumbers.$.unavailableDates": req.body.dates
+        }
+      });
+        res.status(200).json("Room status has been updated.");
+      } catch (error) {
+        next(error);
+      }
+  }
   async deleteRoom(req, res, next) {
     const hotelId = req.params.hotelId;
     try {

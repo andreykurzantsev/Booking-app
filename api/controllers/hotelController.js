@@ -1,4 +1,5 @@
 import Hotel from "../models/Hotel.js";
+import Room from "../models/Room.js";
 
 class HotelController {
   async createHotel(req, res, next) {
@@ -82,6 +83,17 @@ class HotelController {
         {type:"cabins", count:cabinCount},
       ]);
     } catch (error) {
+      next(error);
+    }
+  }
+  async getHotelRoom(req, res, next){
+    try{
+      const hotel = await Hotel.findById(req.params.id);
+      const list = await Promise.all(hotel.rooms.map(room=>{
+        return Room.findById(room);
+      }));
+      res.status(200).json(list);
+    } catch(error){
       next(error);
     }
   }
