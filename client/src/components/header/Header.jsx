@@ -47,14 +47,14 @@ const Header = ({ type }) => {
     });
   };
 
-  const {dispatch} = useContext(SearchContext);
+  const { dispatch } = useContext(SearchContext);
 
   const [destination, setDestination] = useState("");
   const navigate = useNavigate();
-  
-  const handleSearch = () =>{
-    dispatch({type:"NEW_SEARCH", payload:{destination, dates, options}});
-    navigate("/hotels", {state:{destination, dates, options}})
+
+  const handleSearch = () => {
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+    navigate("/hotels", { state: { destination, dates, options } });
   };
 
   return (
@@ -91,7 +91,7 @@ const Header = ({ type }) => {
             </p>
             {!user && <Link to="/login">
               <button className="headerBtn">Sign in / Register</button>
-              </Link>}
+            </Link>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faHotel} className="headerIcon" />
@@ -99,7 +99,7 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going?"
                   className="headerSearchInput"
-                  onChange={e=>setDestination(e.target.value)}
+                  onChange={e => setDestination(e.target.value)}
                 />
               </div>
               <div className="headerSearchItem">
@@ -113,7 +113,7 @@ const Header = ({ type }) => {
                   moveRangeOnFirstSelection={false}
                   ranges={dates}
                   className="date"
-                  minDate = {new Date()}
+                  minDate={new Date()}
                 />}
               </div>
               <div className="headerSearchItem">

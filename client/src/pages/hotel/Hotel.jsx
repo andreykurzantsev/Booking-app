@@ -62,11 +62,11 @@ const Hotel = () => {
   const {user} = useContext(AuthContext);
   const handleClick = () =>{
     if(user){
-      setOpenBook(true)
+      setOpenBook(true);
     } else{
-      navigate("/login")
+      navigate("/login");
     }
-  }
+  };
 
   return (
     <div>

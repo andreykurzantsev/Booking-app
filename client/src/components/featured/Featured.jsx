@@ -1,5 +1,5 @@
-import React from 'react'
-import "./featured.css"
+import React from 'react';
+import "./featured.css";
 import LondonImg from "../../static/img-cities/London.png";
 import KyivImg from "../../static/img-cities/Kyiv.png";
 import AnnecyImg from "../../static/img-cities/Annecy.png";

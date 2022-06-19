@@ -16,7 +16,7 @@ const Navbar = ({ type }) => {
   });
 
   const handleClick = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
       dispatch({ type: "LOGOUT" });
