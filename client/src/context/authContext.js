@@ -18,6 +18,7 @@ const AuthReducer = (state, action) => {
       };
     case 'REGISTRATION_SUCCESS':
       return {
+        user: null,
         loading: false,
         error: null,
       };

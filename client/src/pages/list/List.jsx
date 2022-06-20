@@ -25,7 +25,6 @@ const List = () => {
   );
 
   const { dispatch } = useContext(SearchContext);
-
   const handleClick = () => {
     reFetch();
 
@@ -42,7 +41,7 @@ const List = () => {
             <h1 className="listSearchTitle">Search</h1>
             <div className="listSearchItem">
               <label>Destination</label>
-              <input type="text" placeholder={destination} />
+              <input onChange={(e)=>{setDestination(e.target.value)}} type="text" placeholder={destination} />
             </div>
             <div className="listSearchItem">
               <label>Check-in Date</label>
