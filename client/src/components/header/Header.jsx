@@ -57,6 +57,7 @@ const Header = ({ type }) => {
     navigate('/hotels', { state: { destination, dates, options } });
   };
 
+  localStorage.setItem('destination', destination);
   return (
     <div className="header">
       <div

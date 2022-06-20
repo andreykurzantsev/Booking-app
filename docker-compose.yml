@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  nodejs-server:
+    container_name: server
+    build:
+      context: ./api
+    env_file:
+      - /api/var.env
+    volumes:
+      - .:/api
+      - /api/node_modules
+    ports:
+      - 5000:5000
+    command: "npm run dev"
+    depends_on:
+      - mongo
+
+    restart: always
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    env_file:
+      - /api/var.env 
+    volumes:
+      - mongodb:/data/db:rw
+    ports:
+      - 27017:27017
+
+  client:
+    container_name: client
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    volumes:
+       - ./client:/client
+       - /client/node_modules
+    command: "npm start"
+    depends_on:
+      - nodejs-server
+volumes:
+  mongodb:
+
