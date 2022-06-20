@@ -38,7 +38,7 @@ const Hotel = () => {
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
   };
-  console.log(dates[0].endDate);
+  
   const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
   const handleMove = (direction) => {
