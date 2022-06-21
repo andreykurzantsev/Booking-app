@@ -45,7 +45,7 @@ class AuthController {
           httpOnly: true,
         })
         .status(200)
-        .json({ ...restParams });
+        .json({details: {...restParams}, isAdmin });
     } catch (error) {
       next(error);
     }

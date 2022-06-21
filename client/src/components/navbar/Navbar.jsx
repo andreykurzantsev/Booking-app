@@ -27,7 +27,7 @@ const Navbar = ({ type }) => {
     <div className="navbar">
       <div className="navContainer">
         <Link className="linkLogo" to="/">
-          <span className="logo"> easybooking</span>
+          <span className="logo"> Quick-Reserve</span>
         </Link>
         {type !== 'login' && (
           <>
