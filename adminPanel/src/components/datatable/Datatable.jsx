@@ -3,24 +3,24 @@ import { DataGrid } from "@mui/x-data-grid";
 import { userColumns } from "../../datatablesource";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import useFetch from "../../hooks/useFetch"
+import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 
-const Datatable = ({columns}) => {
+const Datatable = ({ columns }) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
-  const datableAttribute = (path.split("/")[0]).slice(0, -1);
+  const datableAttribute = path.split("/")[0].slice(0, -1);
 
   const [list, setList] = useState([]);
-  const {data, loading, error} = useFetch(`/${path}`);
+  const { data, loading, error } = useFetch(`/${path}`);
 
   const ucFirst = (str) => {
     if (!str) return str;
-  
-    return str[0].toUpperCase() + str.slice(1);
-  }
 
-  useEffect(()=>{
+    return str[0].toUpperCase() + str.slice(1);
+  };
+
+  useEffect(() => {
     setList(data);
   }, [data]);
 
@@ -28,10 +28,7 @@ const Datatable = ({columns}) => {
     try {
       await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
-    } catch (error) {
-      
-    }
-
+    } catch (error) {}
   };
 
   const actionColumn = [
@@ -71,7 +68,7 @@ const Datatable = ({columns}) => {
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
-        getRowId={row=>row._id}
+        getRowId={(row) => row._id}
       />
     </div>
   );

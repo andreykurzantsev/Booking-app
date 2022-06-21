@@ -1,11 +1,11 @@
-import axios from 'axios';
-import React from 'react';
-import { useContext } from 'react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/navbar/Navbar';
-import { AuthContext } from '../../context/authContext';
-import './login.scss';
+import axios from "axios";
+import React from "react";
+import { useContext } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
+import { AuthContext } from "../../context/authContext";
+import "./login.scss";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -25,19 +25,21 @@ const Login = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    dispatch({ type: 'LOGIN_START' });
+    dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post('/auth/login', credentials);
-      
-      if(res.data.isAdmin){
-        dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.details });
+      const res = await axios.post("/auth/login", credentials);
+
+      if (res.data.isAdmin) {
+        dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
         navigate("/");
       } else {
-        dispatch({ type: 'LOGIN_FAILURE', payload: {message:"You are not allowed!"} });
+        dispatch({
+          type: "LOGIN_FAILURE",
+          payload: { message: "You are not allowed!" },
+        });
       }
-
     } catch (error) {
-      dispatch({ type: 'LOGIN_FAILURE', payload: error.response.data });
+      dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
     }
   };
 

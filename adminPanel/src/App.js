@@ -6,7 +6,7 @@ import New from "./pages/new/New";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import {userInputs } from "./formSource";
+import { userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -16,10 +16,10 @@ import { userColumns, hotelColumns, roomColumns } from "./datatablesource";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
-  const ProtectedRoute = ({children}) =>{
-    const {user} = useContext(AuthContext);
+  const ProtectedRoute = ({ children }) => {
+    const { user } = useContext(AuthContext);
 
-    if(!user) {
+    if (!user) {
       return <Navigate to="/login" />;
     }
 
@@ -31,12 +31,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-                } 
-              />
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
             <Route path="login" element={<Login />} />
             <Route path="users">
               <Route
@@ -111,7 +113,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <NewRoom  />
+                    <NewRoom />
                   </ProtectedRoute>
                 }
               />

@@ -10,12 +10,10 @@ const New = ({ inputs, title }) => {
   const [info, setInfo] = useState({});
 
   const handleChange = (e) => {
-    setInfo(prev => ({
-      ...prev, [e.target.id]: e.target.value
-      })
-    
-     );
-
+    setInfo((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
   };
 
   const handleClick = async (e) => {
@@ -29,19 +27,18 @@ const New = ({ inputs, title }) => {
         data
       );
 
-      const {url} = uploadRes.data;
+      const { url } = uploadRes.data;
 
       const newUser = {
         ...info,
-        img:url,
+        img: url,
       };
 
       await axios.post("/auth/register", newUser);
-    } catch(error){
+    } catch (error) {
       console.log(error);
     }
-
-  }
+  };
 
   return (
     <div className="new">
@@ -79,9 +76,11 @@ const New = ({ inputs, title }) => {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input onChange={handleChange} type={input.type} 
-                  placeholder={input.placeholder} 
-                  id={input.id}
+                  <input
+                    onChange={handleChange}
+                    type={input.type}
+                    placeholder={input.placeholder}
+                    id={input.id}
                   />
                 </div>
               ))}
