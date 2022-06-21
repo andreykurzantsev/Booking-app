@@ -9,8 +9,7 @@ class AuthController {
       var salt = await bcrypt.genSaltSync(10);
       var hash = await bcrypt.hashSync(req.body.password, salt);
       const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
+        ...req.body,
         password: hash,
       });
 
