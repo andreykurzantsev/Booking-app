@@ -13,7 +13,7 @@ import './list.css';
 
 const List = () => {
   const location = useLocation();
-  const [destination, setDestination] = useState(location.state.destination);
+  const [destination, setDestination] = useState(localStorage.getItem('destination'));
   const [dates, setDates] = useState(location.state.dates);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
@@ -26,8 +26,8 @@ const List = () => {
 
   const { dispatch } = useContext(SearchContext);
   const handleClick = () => {
+    localStorage.setItem('destination', destination);
     reFetch();
-
     dispatch({ type: 'NEW_SEARCH', payload: { destination, dates, options } });
   };
 

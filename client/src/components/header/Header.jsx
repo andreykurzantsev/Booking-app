@@ -57,6 +57,7 @@ const Header = ({ type }) => {
     navigate('/hotels', { state: { destination, dates, options } });
   };
 
+  localStorage.setItem('destination', destination);
   return (
     <div className="header">
       <div
@@ -91,7 +92,7 @@ const Header = ({ type }) => {
             <h1 className="headerTitle">Why wait? Find your next stay now!</h1>
             <p className="headerDescription">
               Get rewarded for your travels - unlock instant savings of 10% or
-              more with a free Easybooking account.
+              more with a free Quick-Reserve account.
             </p>
             {!user && (
               <Link to="/login">
