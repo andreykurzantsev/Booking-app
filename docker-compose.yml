@@ -6,7 +6,7 @@ services:
     build:
       context: ./api
     env_file:
-      - /api/var.env
+      - ./api/var.env
     volumes:
       - .:/api
       - /api/node_modules
@@ -22,7 +22,7 @@ services:
     image: mongo
     container_name: mongo
     env_file:
-      - /api/var.env 
+      - ./api/var.env 
     volumes:
       - mongodb:/data/db:rw
     ports:
