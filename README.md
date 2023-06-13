@@ -1,6 +1,6 @@
 # Booking-app
 
-## This web application is my course-work on the topic: methods and technologies of software development.
+## This web application is my course-work on the topic: Flexible programming methods.
 
 ### Description of the project
 This is a hotel booking web service consisting of a client and a server part. Written functionality for the administrator and regular client. The main branch of the repository contains functionality for a regular user.
